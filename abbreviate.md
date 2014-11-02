@@ -33,31 +33,31 @@ logical (currently ignored by R).
 
 `dot`
 
-logical: should a dot (".") be appended?
+logical: should a dot (`"."`) be appended?
 
 `strict`
 
-logical: should minlength be observed strictly? Note that setting strict = TRUE may return non-unique strings.
+logical: should minlength be observed strictly? Note that setting `strict = TRUE` may return non-unique strings.
 
 `method`
 
-a string specifying the method used with default "left.kept", see ‘Details’ below.
+a string specifying the method used with default `"left.kept"`, see ‘Details’ below.
 
 ### Notes
 
 The default algorithm (`method = "left.kept"`) used is similar to that of S. For a single string it works as follows. First all spaces at the beginning of the string are stripped. Then (if necessary) any other spaces are stripped. Next, lower case vowels are removed (starting at the right) followed by lower case consonants. Finally if the abbreviation is still longer than minlength upper case letters are stripped.
 
-Characters are always stripped from the end of the word first. If an element of names.arg contains more than one word (words are separated by space) then at least one letter from each word will be retained.
+Characters are always stripped from the end of the word first. If an element of `names.arg` contains more than one word (words are separated by space) then at least one letter from each word will be retained.
 
-Missing (NA) values are unaltered.
+Missing (`NA`) values are unaltered.
 
 If `use.classes` is FALSE then the only distinction is to be between letters and space. This has NOT been implemented.
 
 ### Values
 
-A character vector containing abbreviations for the strings in its first argument. Duplicates in the original names.arg will be given identical abbreviations. If any non-duplicated elements have the same minlength abbreviations then, if method =   "both.sides" the basic internal abbreviate() algorithm is applied to the characterwise reversed strings; if there are still duplicated abbreviations and if strict = FALSE as by default, minlength is incremented by one and new abbreviations are found for those elements only. This process is repeated until all unique elements of names.arg have unique abbreviations.
+A character vector containing abbreviations for the strings in its first argument. Duplicates in the original names.arg will be given identical abbreviations. If any non-duplicated elements have the same minlength abbreviations then, if `method =   "both.sides"` the basic internal `abbreviate()` algorithm is applied to the characterwise reversed strings; if there are still duplicated abbreviations and if `strict = FALSE` as by default, `minlength` is incremented by one and new abbreviations are found for those elements only. This process is repeated until all unique elements of `names.arg` have unique abbreviations.
 
-The character version of names.arg is attached to the returned value as a names argument: no other attributes are retained.
+The character version of `names.arg` is attached to the returned value as a names argument: no other attributes are retained.
 
 ### Warning
 
