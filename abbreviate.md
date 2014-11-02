@@ -20,27 +20,38 @@ abbreviate(names.arg, minlength = 4, use.classes = TRUE,
 ### Arguments
 
 `names.arg`
+
 a character vector of names to be abbreviated, or an object to be coerced to a character vector by as.character.
+
 `minlength`
+
 the minimum length of the abbreviations.
+
 `use.classes`
+
 logical (currently ignored by R).
+
 `dot`
+
 logical: should a dot (".") be appended?
+
 `strict`
+
 logical: should minlength be observed strictly? Note that setting strict = TRUE may return non-unique strings.
+
 `method`
+
 a string specifying the method used with default "left.kept", see ‘Details’ below.
 
 ### Notes
 
-The default algorithm (method = "left.kept") used is similar to that of S. For a single string it works as follows. First all spaces at the beginning of the string are stripped. Then (if necessary) any other spaces are stripped. Next, lower case vowels are removed (starting at the right) followed by lower case consonants. Finally if the abbreviation is still longer than minlength upper case letters are stripped.
+The default algorithm (`method = "left.kept"`) used is similar to that of S. For a single string it works as follows. First all spaces at the beginning of the string are stripped. Then (if necessary) any other spaces are stripped. Next, lower case vowels are removed (starting at the right) followed by lower case consonants. Finally if the abbreviation is still longer than minlength upper case letters are stripped.
 
 Characters are always stripped from the end of the word first. If an element of names.arg contains more than one word (words are separated by space) then at least one letter from each word will be retained.
 
 Missing (NA) values are unaltered.
 
-If use.classes is FALSE then the only distinction is to be between letters and space. This has NOT been implemented.
+If `use.classes` is FALSE then the only distinction is to be between letters and space. This has NOT been implemented.
 
 ### Values
 
@@ -70,13 +81,13 @@ as <- abbreviate(state.name, 3, strict = TRUE)
 
 as[which(as == "Mss")]
  
-&#35; method="both.sides" helps: no 4-letters, and only 4 3-letters
+ # method="both.sides" helps: no 4-letters, and only 4 3-letters
 
 st.ab2 <- abbreviate(state.name, 2, method = "both")
 
 table(nchar(st.ab2))
 
-&#35; Compare the two methods
+ # Compare the two methods
 
 cbind(st.abb, st.ab2)
 
